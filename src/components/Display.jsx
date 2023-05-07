@@ -1,9 +1,11 @@
 import React from 'react'
 
-const Display = () => {
+const Display = ({year,month,day}) => {
   return (
-    <div>
-        Your age
+    <div className='age'>
+    <span>{year}</span> years<br/>
+      <span>{month}</span> months<br/>
+      <span>{day}</span> days
     </div>
   )
 }

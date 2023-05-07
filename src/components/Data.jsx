@@ -3,12 +3,8 @@ import Label from './resuable/Label'
 import Input from './resuable/Input'
 import ArrowBtn from './ArrowBtn'
 
-const Data = () => {
-  const date = [
-    { key: 1, val: "day" },
-    { key: 2, val: "month" },
-    { key: 3, val: "year" }
-  ]
+const Data = ({date}) => {
+
   return (
     <div className='data'>
       <div className="form">
@@ -26,9 +22,10 @@ const Data = () => {
         })}
       </div>
      
-
+      <div className='line'></div>
 
       <ArrowBtn />
+      
     </div>
   )
 }
