@@ -1,9 +1,9 @@
 import React from 'react'
 import arrow from '../assets/icon-arrow.svg'
-const ArrowBtn = () => {
+const ArrowBtn = ({onClick}) => {
   return (
     <div className='center-div'>
-      <div className='arrow'>
+      <div className='arrow' onClick={onClick}>
         <img src={arrow} />
       </div>
     </div>
