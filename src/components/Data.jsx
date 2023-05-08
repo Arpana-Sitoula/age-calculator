@@ -6,9 +6,8 @@ import ArrowBtn from './ArrowBtn'
 const Data = ({dateObj,onDayChange,onMonthChange,onYearChange}) => {
 const now = new Date();
 const nowYear = now.getUTCFullYear();
-const nowMonth = now.getUTCMonth()+1;
+const nowMonth = now.getUTCMonth();
 const nowDay = now.getUTCDate();
-console.log(now,nowYear,nowMonth,nowDay);
 
 const [formValue, setFormValue] = useState({
   day: "",
@@ -21,12 +20,48 @@ const handleChange = (event) => {
     [event.target.name]: event.target.value,
   });
 };
+
+//main logic for calculating age
+let yearAge = nowYear - formValue.year;
+let monthAge;
+let dateAge;
+if(nowMonth >= formValue.month){
+  monthAge = nowMonth - formValue.month;
+}
+else{
+  yearAge--;
+  monthAge = 12+ nowMonth - formValue.month;
+}
+if(nowDay >= formValue.day){
+  dateAge = nowDay - formValue.day;
+}
+else{
+  monthAge--;
+  dateAge = 31 + nowDay - formValue.day;
+  if(monthAge < 0){
+    monthAge = 11;
+    yearAge--;
+  }
+}
+
+
 const handleDate = (event) =>{
   event.preventDefault();
-  console.log(formValue.day);
-  onDayChange(nowDay- formValue.day);
-  onYearChange(nowYear -formValue.year);
-  onMonthChange(nowMonth - formValue.month);
+  if(formValue.day == "" || formValue.month == "" || formValue.year==""){
+    console.log("error");
+  }
+  else if(formValue.month<=1 || formValue.month>=12){
+    console.log("invalid");
+  }
+  else if(formValue.year > nowYear){
+    console.log("invalid");
+  }
+
+  else{
+  onDayChange(dateAge);
+  onYearChange(yearAge);
+  onMonthChange(monthAge);
+  }
 }
 
 

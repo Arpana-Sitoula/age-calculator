@@ -17,7 +17,7 @@ function App() {
     <div className="main">
       <div className="app">
         <div className="container">
-          <Data dateObj={dateObj} year={year} month={month} day={day} onDayChange={setDay} onMonthChange={setMonth} onYearChange={setYear} />
+          <Data dateObj={dateObj} onDayChange={setDay} onMonthChange={setMonth} onYearChange={setYear} />
           <Display year={year} month={month} day={day}/>
         </div>
       </div>
