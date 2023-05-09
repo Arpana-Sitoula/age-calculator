@@ -4,6 +4,11 @@
     font-size: 50px;
     margin: 0px 24px;
     line-height: 54px;
+    @media (min-width: map-get($breakpoints,large)){
+        font-size: 70px;
+        margin:0px 52px;
+        line-height: 76px;
+    }
     span{
         color: $--purple;
     }

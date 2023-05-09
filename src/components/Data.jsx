@@ -47,7 +47,7 @@ const Data = ({ dateObj, onDayChange, onMonthChange, onYearChange }) => {
   }
 
   let error;
-  const handleDate = (event) => {
+  const handleDate = (event, error) => {
     event.preventDefault();
 
     //form validation

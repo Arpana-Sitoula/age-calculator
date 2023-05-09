@@ -2,28 +2,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} 
 .main{
     @extend .center-div;
+    background-color: $--off-white;
     .app {
-        @extend .center-div;
-        width: 375px;
-        height: 600px;
-        border: 1px solid black;
-        background-color: $--off-white;
-    
+        @extend .center-div;   
     .container {
         width: 360px;
         height: 450px;
         background-color: $--white;
         border-radius: 20px 20px 120px 20px;
+        @media (min-width: map-get($breakpoints, large)){
+            width: 630px;
+            height: 450px;
+        }
     }
     label{
-        font-size: 12px;
+        font-size: 9px;
         color: $--smokey-grey;
         letter-spacing:0.1rem;
         font-weight: bold;
         margin-bottom: 2px;
+        @media (min-width: map-get($breakpoints,large)){
+            font-size: 12px;
+        }
     }
     input{
         font-size:20px;
@@ -31,10 +34,15 @@
         height: 22px;
         padding: 12px 20px;
         display: inline-block;
-        border: 1px solid $--light-grey;
+        border: 1.5px solid $--light-grey;
         box-sizing: content-box;
         border-radius: 8px;
         cursor: pointer;
+        @media (min-width: map-get($breakpoints,large)){
+            font-size: 22px;
+            width: 62px;
+            height: 25px;
+        }
     }
     input:focus {
         outline:1px solid $--purple;
