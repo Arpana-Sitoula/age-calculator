@@ -16,6 +16,7 @@ const Data = ({ dateObj, onDayChange, onMonthChange, onYearChange }) => {
     month: "",
     year: ""
   })
+
   const handleChange = (event) => {
     setFormValue({
       ...formValue,
@@ -52,7 +53,6 @@ const Data = ({ dateObj, onDayChange, onMonthChange, onYearChange }) => {
 
     //form validation
     if (formValue.day == "" || formValue.month == "" || formValue.year == "") {
-      error = <ErrorMsg />;
       console.log("error");
     }
     else if (formValue.month <= 1 || formValue.month >= 12) {
@@ -99,11 +99,11 @@ const Data = ({ dateObj, onDayChange, onMonthChange, onYearChange }) => {
         })}
       </div>
       <div className="form">
-        <div>  <Input name="day" value={formValue.day} onChange={handleChange} />
+        <div>  <Input name="day" value={formValue.day} required = {true} onChange={handleChange} />
           {error}</div>
-        <div>  <Input name="month" value={formValue.month} onChange={handleChange} />
+        <div>  <Input name="month" value={formValue.month} required = {true} onChange={handleChange} />
           {error}</div>
-        <div>  <Input name="year" value={formValue.year} onChange={handleChange} />
+        <div>  <Input name="year" value={formValue.year} required = {true} onChange={handleChange} />
           {error}</div>
       </div>
 
